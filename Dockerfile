@@ -16,7 +16,7 @@ RUN set -xe \
         curl
 
 # Environments which may be change
-ENV ROUTEROS_VERSION="6.47.2"
+ENV ROUTEROS_VERSION="6.48.3"
 ENV ROUTEROS_IMAGE="chr-${ROUTEROS_VERSION}.vdi"
 ENV ROUTEROS_URL="https://download.mikrotik.com/routeros/${ROUTEROS_VERSION}/$ROUTEROS_IMAGE"
 
@@ -29,6 +29,6 @@ RUN ip link show
 
 RUN wget ${ROUTEROS_URL} -O /routeros/${ROUTEROS_IMAGE}
 # Download VDI image from remote site
-EXPOSE 21 22 23 80 443 8291 8728 8729
+EXPOSE 21 22 23 8291 8728 8729 51820 50 51 500/udp 4500/udp 
 
 ENTRYPOINT [ "/routeros/bin/entrypoint.sh" ]
