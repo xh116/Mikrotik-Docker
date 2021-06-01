@@ -23,7 +23,7 @@ ENV ROUTEROS_URL="https://download.mikrotik.com/routeros/${ROUTEROS_VERSION}/$RO
 WORKDIR /routeros
 
 COPY bin bin/
-RUN chmod 0755 /routeros/bin/
+RUN chmod -R 755 /routeros/bin
 RUN wget ${ROUTEROS_URL} -O /routeros/${ROUTEROS_IMAGE}
 # Download VDI image from remote site
 EXPOSE 21 22 23 8291 8728 8729 51820 50 51 500/udp 4500/udp 
