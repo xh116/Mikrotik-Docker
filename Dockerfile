@@ -22,8 +22,7 @@ ENV ROUTEROS_URL="https://download.mikrotik.com/routeros/${ROUTEROS_VERSION}/$RO
 
 WORKDIR /routeros
 
-ADD ["./bin", "/routeros"]
-
+COPY /bin /routeros
 
 RUN wget ${ROUTEROS_URL} -O /routeros/${ROUTEROS_IMAGE}
 # Download VDI image from remote site
