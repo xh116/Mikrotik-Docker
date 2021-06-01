@@ -5,7 +5,7 @@ default_dev1='eth0'
 
 # DHCPD must have an IP address to run, but that address doesn't have to
 # be valid. This is the dummy address dhcpd is configured to use.
-DUMMY_DHCPD_IP='10.0.0.10'
+DUMMY_DHCPD_IP='10.0.0.1'
 
 # These scripts configure/deconfigure the VM interface on the bridge.
 QEMU_IFUP='/routeros/qemu-ifup'
@@ -47,6 +47,6 @@ exec qemu-system-x86_64 \
    -nographic -serial mon:stdio \
    -vnc 0.0.0.0:0 \
    -m 128 \
-   -nic tap,id=qemu1,mac=54:05:AB:CD:22:33,script=$QEMU_IFUP,downscript=$QEMU_IFDOWN \
+   -nic tap,id=qemu1,mac=54:05:AB:CD:12:34,script=$QEMU_IFUP,downscript=$QEMU_IFDOWN \
    "$@" \
    -hda $ROUTEROS_IMAGE
