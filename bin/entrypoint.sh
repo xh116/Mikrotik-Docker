@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-QEMU_BRIDGE_ETH1='qemubr1'
+QEMU_BRIDGE_ETH1='qemubr0'
 default_dev1='eth0'
 
 # DHCPD must have an IP address to run, but that address doesn't have to
@@ -47,6 +47,6 @@ exec qemu-system-x86_64 \
    -nographic -serial mon:stdio \
    -vnc 0.0.0.0:0 \
    -m 128 \
-   -nic tap,id=qemu1,mac=54:05:AB:CD:12:34,script=$QEMU_IFUP,downscript=$QEMU_IFDOWN \
+   -nic tap,id=qemu0,mac=54:05:AB:CD:12:34,script=$QEMU_IFUP,downscript=$QEMU_IFDOWN \
    "$@" \
    -hda $ROUTEROS_IMAGE
