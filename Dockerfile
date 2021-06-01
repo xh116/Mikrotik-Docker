@@ -5,11 +5,12 @@ RUN set -xe \
     netcat-openbsd qemu-x86_64 qemu-system-x86_64 \
     busybox-extras iproute2 iputils \
     bridge-utils iptables jq bash python3
-    
-EXPOSE 22 23 80 8291 50 51 500/udp 4500/udp 
+ 
+# ssh=22 web=80 winbox=8291 wireguard=51820 ipsec=50 51 500/udp 4500/udp 
+EXPOSE 22 80 8291 51820 50 51 500/udp 4500/udp 
 
 # Environments which may be change
-ENV ROUTEROS_VERSION="6.48.3"
+ENV ROUTEROS_VERSION="7.1beta6"
 ENV ROUTEROS_IMAGE="chr-${ROUTEROS_VERSION}.vdi"
 ENV ROUTEROS_URL="https://download.mikrotik.com/routeros/${ROUTEROS_VERSION}/$ROUTEROS_IMAGE"
 
