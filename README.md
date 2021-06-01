@@ -1,7 +1,12 @@
 # docker-mikrotik
 
 
-forked from https://github.com/kilip/docker-routeros
+thanks kilip  
 
 
-run it with  --privileged
+
+docker run -d -p 9991:8291 -p 8880:80 --privileged --name=mikrotik --restart=always xh116/mikrotik
+
+
+
+Thanks @kilip   @EvilFreelancer 
