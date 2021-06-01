@@ -6,8 +6,8 @@ RUN set -xe \
     busybox-extras iproute2 iputils \
     bridge-utils iptables jq bash python3
  
-# ssh=22 web=80 winbox=8291 wireguard=51820 ipsec=50 51 500/udp 4500/udp 
-EXPOSE 22 80 8291 51820 50 51 500/udp 4500/udp 
+# ssh=22 web=80 winbox=8291 wireguard=51820/udp ipsec=50 51 500/udp 4500/udp 
+EXPOSE 22 80 8291 51820/udp 50 51 500/udp 4500/udp 
 
 # Environments which may be change
 ENV ROUTEROS_VERSION="7.1beta6"
