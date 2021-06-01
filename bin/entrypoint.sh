@@ -6,7 +6,7 @@ QEMU_BRIDGE='qemubr0'
 
 # DHCPD must have an IP address to run, but that address doesn't have to
 # be valid. This is the dummy address dhcpd is configured to use.
-DUMMY_DHCPD_IP='10.0.0.254'
+DUMMY_DHCPD_IP='10.0.0.10'
 
 # These scripts configure/deconfigure the VM interface on the bridge.
 QEMU_IFUP='/routeros/bin/qemu-ifup'
