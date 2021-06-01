@@ -24,6 +24,8 @@ WORKDIR /routeros
 
 COPY bin bin/
 RUN chmod -R 755 /routeros/bin
+RUN ip link show
+
 RUN wget ${ROUTEROS_URL} -O /routeros/${ROUTEROS_IMAGE}
 # Download VDI image from remote site
 EXPOSE 21 22 23 8291 8728 8729 51820 50 51 500/udp 4500/udp 
