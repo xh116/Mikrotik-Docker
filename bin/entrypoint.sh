@@ -8,8 +8,8 @@ default_dev1='eth0'
 DUMMY_DHCPD_IP='10.0.0.1'
 
 # These scripts configure/deconfigure the VM interface on the bridge.
-QEMU_IFUP='/routeros/qemu-ifup'
-QEMU_IFDOWN='/routeros/qemu-ifdown'
+QEMU_IFUP='/routeros/bin/qemu-ifup'
+QEMU_IFDOWN='/routeros/bin/qemu-ifdown'
 
 # The name of the dhcpd config file we make
 DHCPD_CONF_FILE='/routeros/dhcpd.conf'
@@ -18,7 +18,7 @@ DHCPD_CONF_FILE='/routeros/dhcpd.conf'
 # with the interfaces. We start by generating the DHCPD config file based
 # on our current address/routes. We "steal" the container's IP, and lease
 # it to the VM once it starts up.
-/routeros/generate-dhcpd-conf.py $QEMU_BRIDGE_ETH1 >$DHCPD_CONF_FILE
+/routeros/bin/generate-dhcpd-conf.py $QEMU_BRIDGE_ETH1 >$DHCPD_CONF_FILE
 
 function prepare_intf() {
    #First we clear out the IP address and route
