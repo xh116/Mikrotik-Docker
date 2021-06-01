@@ -22,7 +22,7 @@ ENV ROUTEROS_URL="https://download.mikrotik.com/routeros/${ROUTEROS_VERSION}/$RO
 
 WORKDIR /routeros
 
-ADD ["./bin/", "/routeros"]
+ADD ["./bin", "/routeros"]
 
 
 RUN wget ${ROUTEROS_URL} -O /routeros/${ROUTEROS_IMAGE}
