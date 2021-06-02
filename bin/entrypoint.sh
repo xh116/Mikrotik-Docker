@@ -47,6 +47,7 @@ exec qemu-system-x86_64 \
    -nographic -serial mon:stdio \
    -vnc 0.0.0.0:0 \
    -m 192 \
+   #-smp 4,sockets=1,cores=4,threads=1 \
    -nic tap,id=qemu0,mac=54:05:AB:CD:12:34,script=$QEMU_IFUP,downscript=$QEMU_IFDOWN \
    "$@" \
    -hda $ROUTEROS_IMAGE
