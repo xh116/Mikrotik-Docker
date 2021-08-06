@@ -3,7 +3,8 @@ FROM golang:buster As builder
 WORKDIR /Mikrotik
 
 RUN apt-get update \
-    && go get -u github.com/hafkensite/mikrotik-exporter@master \ 
+    && apt-get install git \
+    && git clone -b master https://github.com/hafkensite/mikrotik-exporter.git \ 
     && cd mikrotik-exporter \
     && go build 
 
