@@ -1,7 +1,6 @@
 FROM golang:alpine as builder
 
-RUN apt-get update \
-    && apt-get install git \
+RUN apk update && add --no-cache git \
     && git clone -b master https://github.com/hafkensite/mikrotik-exporter.git  
     
 WORKDIR  /mikrotik-exporter
