@@ -17,7 +17,7 @@ Thanks @kilip   @EvilFreelancer
   --network=monitor \
   -p 9436:9436 \
   --restart=unless-stopped \
-  -v /home/core/docker/mikrotik/config.yml:/config.yml \
+  -v /path/to/config.yml:/config.yml \
   xh116/mikrotik-exporter 
  ``` 
   
