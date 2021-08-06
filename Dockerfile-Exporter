@@ -23,4 +23,4 @@ RUN set -e \
 
 EXPOSE 9436
  
-CMD ["mikrotik-exporter", "-config-file", "$CONFIG_FILE" ]
+CMD ["./mikrotik-exporter", "-config-file", "config.yml" ]
