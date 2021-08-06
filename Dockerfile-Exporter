@@ -12,18 +12,15 @@ FROM alpine:latest
 
 ENV TZ Asia/Shanghai
 
-RUN mkdir app
-
-COPY --from=builder /mikrotik-exporter/mikrotik-exporter /app
+COPY --from=builder /mikrotik-exporter/mikrotik-exporter /usr/local/bin
 
 RUN set -e \
     && apk upgrade \
     && apk add bash tzdata \
     && ln -sf /usr/share/zoneinfo/${TZ} /etc/localtime \
     && echo ${TZ} > /etc/timezone \
-    && chmod 755 /app/mikrotik-exporter \
     && rm -rf /var/cache/apk/*
 
 EXPOSE 9436
  
-CMD ["/app/mikrotik-exporter", "-config-file", "config.yml" ]
+CMD ["mikrotik-exporter", "-config-file", "config.yml" ]
