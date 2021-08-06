@@ -1,7 +1,7 @@
 FROM golang:alpine as builder
 
 RUN apk update && apk add --no-cache git \
-    && git clone -b master https://github.com/hafkensite/mikrotik-exporter.git  
+    && git clone -b master https://github.com/hafkensite/mikrotik-exporter.git  /mikrotik-exporter
     
 WORKDIR  /mikrotik-exporter
 
