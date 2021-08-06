@@ -1,0 +1,27 @@
+FROM golang:buster As builder
+
+WORKDIR /Mikrotik
+
+RUN apt-get update \
+    go get  github.com/hafkensite/mikrotik-exporter.git\ 
+    cd mikrotik-exporter \
+    go build 
+
+FROM alpine:latest AS dist
+
+ENV TZ Asia/Shanghai
+
+COPY --from=builder /Mikrotik/mikrotik-exporter/mikrotik-exporter /usr/bin/mikrotik-exporter
+
+RUN set -e \
+    && apk upgrade \
+    && apk add bash tzdata mailcap \
+    && ln -sf /usr/share/zoneinfo/${TZ} /etc/localtime \
+    && echo ${TZ} > /etc/timezone \
+    && rm -rf /var/cache/apk/*
+
+EXPOSE 9436
+
+WORKDIR /mikrotik-exporter
+
+ENTRYPOINT ["mikrotik-exporter", "-config-file", "config.yml"]
