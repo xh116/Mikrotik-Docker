@@ -7,8 +7,7 @@ RUN apt-get update \
     && git clone -b master https://github.com/hafkensite/mikrotik-exporter.git \ 
     && cd mikrotik-exporter \
     && go build \
-    && ls \
-    && mv ./mikrotik-exporter ..
+    && mv ./mikrotik-exporter /Mikrotik
 
 FROM alpine:latest 
 
