@@ -1,6 +1,6 @@
 FROM alpine
 
-RUN apk add --no-cache openssh
+RUN apk add --no-cache openssh nano curl 
 
 RUN set -eux; \
     ssh-keygen -A; \
