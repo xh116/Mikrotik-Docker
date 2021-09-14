@@ -1,14 +1,12 @@
 FROM alpine
-RUN apk add --no-cache bash openssh 
 
-RUN sed -i 's/#Port 22/Port 22/g; \
-            s/#PasswordAuthentication yes/PasswordAuthentication no/g;' \
-            /etc/ssh/sshd_config && \
-    usermod --shell /bin/bash root && \
-    mkdir /root/.ssh && \
-    chmod 0700 /root/.ssh \
-    rm -rf /var/cache/apk/*
+RUN apk add --no-cache openssh
 
+RUN set -eux &&  \
+    ssh-keygen -A && \
+    sed 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/g' -i /etc/ssh/sshd_config && \
+    usermod --shell /bin/bash root  
+    
 EXPOSE 22
 
 CMD ["/usr/sbin/sshd", "-D", "-e", "-f", "/etc/ssh/sshd_config"]
