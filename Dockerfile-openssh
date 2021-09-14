@@ -1,7 +1,6 @@
 FROM alpine
 
 RUN set -e;                                             \
-    /usr/bin/ssh-keygen -A;                             \
     passwd -l root;                                     \
     apk add --no-cache openssh nano curl sudo ;         \
     sed -i                                              \
