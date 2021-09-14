@@ -1,11 +1,11 @@
 FROM alpine
 
-RUN apk add --no-cache openssh
+RUN apk add --no-cache openssh nano curl sudo 
 
-RUN set -eux &&  \
-    ssh-keygen -A && \
+RUN ssh-keygen -A && \
     sed 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/g' -i /etc/ssh/sshd_config && \
-    usermod --shell /bin/bash root  
+    usermod --shell /bin/bash root && \
+    rm -rf /var/cache/apk/*
     
 EXPOSE 22
 
