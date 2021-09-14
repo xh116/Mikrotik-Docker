@@ -1,10 +1,10 @@
 FROM alpine
 RUN apk add --no-cache openssh shadow
 
-RUN sed -i "s/#Port 22/Port 22/g; \
-            s/#PasswordAuthentication yes/PasswordAuthentication no/g; \
+RUN sed -i 's/#Port 22/Port 22/g;' \
+            's/#PasswordAuthentication yes/PasswordAuthentication no/g;' \
             /etc/ssh/sshd_config && \
-    usermod -p '' root && \
+    usermod --shell /bin/bash root && \
     mkdir /root/.ssh && \
     chmod 0700 /root/.ssh \
     rm -rf /var/cache/apk/*
