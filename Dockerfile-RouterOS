@@ -10,7 +10,7 @@ RUN set -xe \
 EXPOSE 22 80 8291 51820/udp 50 51 500/udp 4500/udp 
 
 # Environments which may be change
-ENV ROUTEROS_VERSION="7.1beta6"
+ENV ROUTEROS_VERSION="7.1"
 ENV ROUTEROS_IMAGE="chr-${ROUTEROS_VERSION}.vdi"
 ENV ROUTEROS_URL="https://download.mikrotik.com/routeros/${ROUTEROS_VERSION}/$ROUTEROS_IMAGE"
 
